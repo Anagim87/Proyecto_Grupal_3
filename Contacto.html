@@ -50,11 +50,70 @@
                 
                 <img id:"imagen1" src="https://d1di2lzuh97fh2.cloudfront.net/files/1l/1le/1leo9c.png?ph=510d0f72b3" alt="foto ilustrativa">
                 <img id:"imagen2" src="https://d1di2lzuh97fh2.cloudfront.net/files/3m/3m6/3m6tqi.png?ph=510d0f72b3" alt="foto ilustrativa">
+
+                   <!-- División para el formulario de contacto -->
+        <div id="contacto-formulario">
+            <h2>Formulario de Contacto</h2>
+            <form id="formulario" onsubmit="return validarFormulario()">
+                <div>
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                </div>
+                <div>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div>
+                    <label for="telefono">Teléfono:</label>
+                    <input type="tel" id="telefono" name="telefono" required>
+                </div>
+                <div>
+                    <label for="consulta">Consulta:</label>
+                    <textarea id="consulta" name="consulta" required></textarea>
+                </div>
+                <div>
+                    <label for="motivo">Motivo de contacto:</label>
+                    <select id="motivo" name="motivo" required>
+                        <option value="">Seleccionar</option>
+                        <option value="consulta">Consulta</option>
+                        <option value="reclamo">Reclamo</option>
+                        <option value="sugerencia">Sugerencia</option>
+                    </select>
+                </div>
+                <div>
+                    <input type="checkbox" id="suscripcion" name="suscripcion">
+                    <label for="suscripcion">Suscribirse al boletín</label>
+                </div>
+                <div>
+                    <input type="submit" value="Enviar">
+                </div>
+            </form>
+        </div>
+
     </main>
 
     <footer>
         <p>&copy; 2024 Nombre de tu empresa. Todos los derechos reservados.</p>
     </footer>
+    <script>
+        function validarFormulario() {
+            var nombre = document.getElementById("nombre").value;
+            var email = document.getElementById("email").value;
+            var telefono = document.getElementById("telefono").value;
+            var consulta = document.getElementById("consulta").value;
+            var motivo = document.getElementById("motivo").value;
+
+            // Validación simple de campos obligatorios
+            if (nombre === "" || email === "" || telefono === "" || consulta === "" || motivo === "") {
+                alert("Por favor, complete todos los campos obligatorios.");
+                return false;
+            }
+
+            // Agregar cualquier otra validación necesaria aquí
+
+            return true; // Envío del formulario si pasa todas las validaciones
+        }
+    </script>
 
 </body>
 </html>
